@@ -28,7 +28,7 @@ permissions:
 env:
   # The one variable that separates the arms: on baseline, action-checkout
   # skips its Set up Chalk step entirely.
-  CHALK_ON: ${{ github.event_name == 'workflow_dispatch' && inputs.leg != 'baseline' }}
+  CHALK_ON: ${{ inputs.leg == 'instrumented' }}
 
 run-name: "test ${{ inputs.leg || 'push' }} ${{ inputs.racecar_run }}"
 
@@ -190,7 +190,7 @@ jobs:
     permissions:
       contents: write
       id-token: write
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ 'push' == 'push' }}
     uses: vapor/ci/.github/workflows/submit-deps.yml@main
     secrets: inherit
 
