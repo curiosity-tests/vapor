@@ -1,11 +1,11 @@
 name: CodeQL
 on:
   push:
-    branches: [ "main", "vapor-5" ]
+    branches: ["main", "vapor-5"]
   pull_request:
-    branches: [ "main", "vapor-5" ]
+    branches: ["main", "vapor-5"]
   schedule:
-    - cron: '0 0 * * 1'
+  - cron: '0 0 * * 1'
 
 jobs:
   analyze:
